@@ -36,5 +36,23 @@ const colors = ["red", "indigo", "lime", "yellow", "purple"];
         }
         button.disabled = true;
 
+    // add in transaction history
+
+        const getCard = button.parentElement.parentElement.parentElement;
+        const cardTitle = getCard.querySelector(".card-title").innerText;
+        const today = new Date()
+        const getToday=today.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+       
+        const titleContainer = document.getElementById("activity-container");
+        const newDiv = document.createElement("div");
+        
+        newDiv.innerHTML=`You have Completed The  task ${cardTitle} at ${getToday}`
+    titleContainer.appendChild(newDiv);
 
     }))
+    
+
+
+    document.getElementById("clear-history").addEventListener('click',function(){
+        document.getElementById("activity-container").innerText=' '
+    })
