@@ -9,6 +9,14 @@ const colors = ["red", "indigo", "lime", "yellow", "purple"];
         
     })
 
+    // date
+
+    const today = new Date();
+    const tittles = {week: "long", year: "numeric", month: "long", day: "numeric"};
+    const formateOfDate = today.toLocaleDateString("en-us", tittles);
+
+    document.getElementById("date-day").textContent = formateOfDate;
+
 
     // click buton
     const clickButtons = document.querySelectorAll(".click-btn");
@@ -52,6 +60,7 @@ const colors = ["red", "indigo", "lime", "yellow", "purple"];
         `
         
     activityContainer.appendChild(newDiv);
+    
 
     }))
     
@@ -64,5 +73,6 @@ const colors = ["red", "indigo", "lime", "yellow", "purple"];
 
     
     document.getElementById("new-page").addEventListener("click",function(){
-        window.location.href = "./newpage.html";
+        window.location.href = "newpage.html";
     })
+    
