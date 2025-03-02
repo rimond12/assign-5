@@ -30,7 +30,7 @@ const colors = ["red", "indigo", "lime", "yellow", "purple"];
 
             alert("Board updated succesfully");
             if(decreaseValue === 0){
-                alert("all done");
+                alert("Congrats!!!You have completed all the current task");
             }
             
         }
@@ -39,15 +39,19 @@ const colors = ["red", "indigo", "lime", "yellow", "purple"];
     // add in transaction history
 
         const getCard = button.parentElement.parentElement.parentElement;
-        const cardTitle = getCard.querySelector(".card-title").innerText;
+        const cardTittle = getCard.querySelector(".card-tittle").innerText;
         const today = new Date()
         const getToday=today.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
        
-        const titleContainer = document.getElementById("activity-container");
+        const activityContainer = document.getElementById("activity-container");
         const newDiv = document.createElement("div");
         
-        newDiv.innerHTML=`You have Completed The  task ${cardTitle} at ${getToday}`
-    titleContainer.appendChild(newDiv);
+        newDiv.innerHTML = `
+        <div class = "bg-blue-500 p-2 rounded-xl mt-3 text-white "> You have Completed The  task ${cardTittle} at ${getToday} </div>
+        
+        `
+        
+    activityContainer.appendChild(newDiv);
 
     }))
     
@@ -55,4 +59,10 @@ const colors = ["red", "indigo", "lime", "yellow", "purple"];
 
     document.getElementById("clear-history").addEventListener('click',function(){
         document.getElementById("activity-container").innerText=' '
+    })
+
+
+    
+    document.getElementById("new-page").addEventListener("click",function(){
+        window.location.href = "./newpage.html";
     })
